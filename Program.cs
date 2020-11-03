@@ -7,18 +7,28 @@ namespace produtos
     {
         static void Main(string[] args)
         {
-             Produto iten = new Produto();
+             
 
             System.Console.WriteLine("Entre com os dados do produto");
             Console.Write("Nome: ");
-            iten.Name = Console.ReadLine();
+            string name = Console.ReadLine();
             System.Console.Write("Preço: ");
-            iten.Price = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            double price = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
             System.Console.Write("Quantidade: ");
-            iten.Qtd = int.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            int qtd = int.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
 
-            System.Console.WriteLine("Dados do produto: " + iten);
+            Produto item = new Produto( name, price, qtd);
 
+            System.Console.WriteLine("Dados do produto: " + item);
+            System.Console.WriteLine();
+            System.Console.Write("Digite a quantidade de produtos a ser adicionado no estoque: ");
+            int product = int.Parse(Console.ReadLine());
+            item.AddItem(product);
+            System.Console.WriteLine("Estoque atualizado: " + item);
+            System.Console.Write("Digite a quantidade de produtos a ser removido do estoque: ");
+            product = int.Parse(Console.ReadLine());
+            item.RemoveItem(product);
+            System.Console.WriteLine("Estoque atualizado: " + item);
         }
     }
 }

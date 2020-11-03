@@ -8,8 +8,24 @@ namespace produtos
         public double Price;
         public int Qtd;
 
-        public double StockValue(){
+        public Produto(string name, double price, int qtd) 
+        {
+            Name = name;
+            Price = price;
+            Qtd = qtd;
+        }
+
+        public double StockValue()
+        {
             return Price * Qtd;
+        }
+        public void AddItem (int addItem)
+        {
+            Qtd += addItem;
+        }
+        public void RemoveItem (int reItem)
+        {
+            Qtd -= reItem;
         }
 
         public override string ToString()
